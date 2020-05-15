@@ -1,0 +1,96 @@
+<html>
+<!--   <iframe  allowvr="yes" style="position: absolute; width: 100%; height:100%; top: 150%; z-index: -1;" allowfullscreen="yes" src="scene.html"  frameBorder="0"></iframe> -->
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+
+
+
+  <a-scene physics vr-mode-ui="enabled: false">
+    <a-camera look-controls fov="60">
+
+      <a-asset item id="bird" response-type="arraybuffer"
+        src="https://cdn.glitch.com/bb8ea6ff-c5a0-4a48-8d5f-f9ad15c22ad2%2Fraptor.glb?v=1589421673110">
+      </a-asset>
+      <a-asset item id="duck" response-type="arraybuffer"
+        src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fduck.glb?v=1589540182898">
+      </a-asset>
+      <a-asset item id="cloud" response-type="arraybuffer"
+        src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fcloud.glb?v=1589533027410">
+      </a-asset>
+      <a-asset item id="rocket" response-type="arraybuffer"
+        src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Frocket_ship.glb?v=1589536836870">
+      </a-asset>
+
+
+      
+      <!-- 
+    <a-sky
+      src="https://cdn.glitch.com/7e18fbf8-9686-4cf7-91f9-4a6bbdb54f5e%2FTRAPPIST-1d_02.21.17_3_unlabeled.png?v=1544173905982">
+    </a-sky> -->
+
+      <!-- <a-entity id="thingtoo" scale="0.25 0.25 0.25" rotation="0 90 0" animation-mixer="clip:Raptor_RIGAction"
+        gltf-model="#bird"
+        animation="property: position; from:-8 -2 -6; to: 8 -2 -6 ; dur: 6000; easing: linear;  loop: true;">
+      </a-entity> -->
+
+      <a-entity id="thing" scale="0.25 0.25 0.25" rotation="0 270 0" animation-mixer="clip:walk"
+        gltf-model="#duck"
+        animation="property: position; from: 5 -2 -6; to: 3 -2 -6 ; dur: 2000; easing: linear;">
+      </a-entity>
+
+      <!-- CLOUDS -->
+      <a-entity scale="0.01 0.01 0.01" rotation="-70 -45 -45" gltf-model="#rocket" animation-mixer="clip:Take 001"
+        animation="property: position; from: -100 0 -40; to: 60 20 -40 ; dur: 20000; easing: linear;  loop: true;">
+      </a-entity>
+
+      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud"
+        animation="property: position; from: 5.5 1.4 -5.5; to: -4 1.4 -5.5 ; dur: 30000; easing: linear;  loop: true;">
+      </a-entity>
+
+      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud" animation-mixer="clip:Take 001"
+        animation="property: position; from: 5 1.8 -4.5; to: -5 1.8 -4.5 ; dur: 25000; easing: linear;  loop: true;">
+      </a-entity>
+
+
+      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0"  gltf-model="#cloud"
+        animation="property: position; from: 5.5 1.6 -5; to: -4 1.6 -5 ; dur: 32000; easing: linear;  loop: true; delay:12000">
+      </a-entity>
+
+      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0"  gltf-model="#cloud"
+        animation="property: position; from: 5 1.4 -5.5; to: -4 1.4 -5.5 ; dur: 30000; easing: linear;  loop: true; delay:12000">
+      </a-entity>
+
+      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud"
+        animation="property: position; from: 5 1.8 -4.5; to: -5 1.8 -4.5 ; dur: 25000; easing: linear;  loop: true; delay:15000">
+      </a-entity>
+
+
+
+  </a-scene>
+
+</body>
+
+</html>
+
+
+
+
+<!--       
+
+        animation__2="property: rotation; to: 0 270 0 ; dur: 1000; easing: linear;  
+      dir: alternate;
+      loop: true; 
+      startEvents: rotation-start; 
+      pauseEvents: rotation-pause; 
+      resumeEvents: rotation-resume;
+       "
+-->

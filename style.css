@@ -1,0 +1,9 @@
+.a-canvas.a-grab-cursor:hover
+{
+    cursor:default !important
+}
+
+.a-canvas.a-grab-cursor:active,.a-grabbing
+{
+    cursor:default !
+}
