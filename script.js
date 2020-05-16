@@ -1,23 +1,19 @@
 var currentEvent = "rotation-start";
 
 
-t = setInterval(approach, 2000);
+t = setTimeout(approach, 2000);
 
 t = setInterval(walkacross, 10000);
 
 var counter = 1;
 var toggle = true;
 
-var once = true;
 function approach(){
-  if(once){
     document.getElementById("thing").setAttribute("animation-mixer", "clip:idle");
-    once=false;
-  }
+  
 }
 
 async function walkacross() {
-
 
   if (toggle) {
 
@@ -47,13 +43,32 @@ async function walkacross() {
   }
 
 
+};
 
-  const secondFunction = async () => {
-    const result = await firstFunction()
-    // do something else here after firstFunction completes
-  }
+var param1 = getParamValue('param1');
+
+function getParamValue(paramName)
+{
+    var url = window.location.search.substring(1); //get rid of "?" in querystring
+    var qArray = url.split('&'); //get key-value pairs
+    for (var i = 0; i < qArray.length; i++) 
+    {
+        var pArr = qArray[i].split('='); //split key and value
+        if (pArr[0] == paramName) 
+          var fov = parseInt(pArr[1], 10);
+          if(isNaN(fov)){
+            fov = 70;
+          }
+          console.log(fov)
+          document.getElementById("camera").setAttribute("fov", fov);
+    }
 
 
+}
+
+
+
+  
   // animation-mixer="clip:walk/idle"
 
   // var i;
@@ -78,9 +93,5 @@ async function walkacross() {
   //       break;
   //   }
 
-
-
-
-};
 
 

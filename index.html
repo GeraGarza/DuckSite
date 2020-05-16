@@ -45,30 +45,10 @@ body {font-family: "Lato", sans-serif}
   <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
 </div>
 
-  <iframe  allowvr="yes" style="position: absolute; width: 100%; height:100%; top: -5%;" allowfullscreen="yes" src="scene.html"  frameBorder="0"></iframe>
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px; background-color: rgb(223, 131, 45);">
-
-  <!-- Automatic Slideshow Images -->
-  <div class="mySlides w3-display-container w3-center">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Los Angeles</h3>
-      <p><b>We had the best time playing at Venice Beach!</b></p>   
-    </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>New York</h3>
-      <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
-    </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Chicago</h3>
-      <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
-    </div>
-  </div>
+<div class="w3-content" style="max-width:2000px;margin-top:46px; ">
+  <iframe id='myIframe' allowvr="yes" style="width: 100%; height: 700px; position: absolute; z-index: -1;" allowfullscreen="yes" src="scene.html"  frameBorder="0"></iframe>
 
   <!-- The Band Section -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
@@ -152,6 +132,7 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
   </div>
+  <iframe  allowvr="yes" style="width: 100%; height: 700px;" allowfullscreen="yes" src="computer.html"  frameBorder="0"></iframe>
 
   <!-- The Contact Section -->
   <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
@@ -194,25 +175,18 @@ body {font-family: "Lato", sans-serif}
   <i class="fa fa-pinterest-p w3-hover-opacity"></i>
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
 
-<script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
-}
+
+
+
+
+
+
+
+<script>
+
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
@@ -231,7 +205,27 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// var x = setInterval(getScreen, 1000);
+
+// function getScreen(){
+//   console.log(window.innerWidth)
+// }
+
+
+
+resizeIframe();
+function resizeIframe(){
+  wid = window.innerWidth;
+  var y = 100 + ( wid - 2300 ) * ((120-70)/(2300-400))
+  new_width = (100/y) *53
+
+  document.getElementById("myIframe").setAttribute("src", "scene.html?param1="+new_width);
+
+  } 
+
 </script>
 
 </body>
 </html>
+

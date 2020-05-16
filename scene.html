@@ -6,7 +6,6 @@
   <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="script.js"></script>
 
 </head>
 
@@ -15,7 +14,8 @@
 
 
   <a-scene physics vr-mode-ui="enabled: false">
-    <a-camera look-controls fov="60">
+    <!-- 130 phone | 70 other -->
+    <a-camera id="camera" look-controls fov="170">
 
       <a-asset item id="bird" response-type="arraybuffer"
         src="https://cdn.glitch.com/bb8ea6ff-c5a0-4a48-8d5f-f9ad15c22ad2%2Fraptor.glb?v=1589421673110">
@@ -29,18 +29,27 @@
       <a-asset item id="rocket" response-type="arraybuffer"
         src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Frocket_ship.glb?v=1589536836870">
       </a-asset>
+      <a-asset item id="standing" response-type="arraybuffer"
+      src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fstanding.glb?v=1589580713753">
+    </a-asset>
 
 
       
+      
       <!-- 
-    <a-sky
-      src="https://cdn.glitch.com/7e18fbf8-9686-4cf7-91f9-4a6bbdb54f5e%2FTRAPPIST-1d_02.21.17_3_unlabeled.png?v=1544173905982">
-    </a-sky> -->
+    <a-sky src="https://cdn.glitch.com/7e18fbf8-9686-4cf7-91f9-4a6bbdb54f5e%2FTRAPPIST-1d_02.21.17_3_unlabeled.png?v=1544173905982"> </a-sky> 
+      -->
 
-      <!-- <a-entity id="thingtoo" scale="0.25 0.25 0.25" rotation="0 90 0" animation-mixer="clip:Raptor_RIGAction"
+      <!-- 
+        <a-entity id="thingtoo" scale="0.25 0.25 0.25" rotation="0 90 0" animation-mixer="clip:Raptor_RIGAction"
         gltf-model="#bird"
         animation="property: position; from:-8 -2 -6; to: 8 -2 -6 ; dur: 6000; easing: linear;  loop: true;">
-      </a-entity> -->
+      </a-entity> 
+      -->
+
+      <a-entity scale="0.3 0.35 0.3" position=" 1.5 -0.7 -2" rotation="0 320 0" animation-mixer="clip:mixamo.com"
+        gltf-model="#standing">
+      </a-entity>
 
       <a-entity id="thing" scale="0.25 0.25 0.25" rotation="0 270 0" animation-mixer="clip:walk"
         gltf-model="#duck"
@@ -56,7 +65,7 @@
         animation="property: position; from: 5.5 1.4 -5.5; to: -4 1.4 -5.5 ; dur: 30000; easing: linear;  loop: true;">
       </a-entity>
 
-      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud" animation-mixer="clip:Take 001"
+      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud" 
         animation="property: position; from: 5 1.8 -4.5; to: -5 1.8 -4.5 ; dur: 25000; easing: linear;  loop: true;">
       </a-entity>
 
@@ -76,6 +85,7 @@
 
 
   </a-scene>
+  <script src="script.js"></script>
 
 </body>
 
