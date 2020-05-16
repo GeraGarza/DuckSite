@@ -5,7 +5,7 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 
@@ -14,78 +14,83 @@
 
 
   <a-scene physics vr-mode-ui="enabled: false">
-    <!-- 130 phone | 70 other -->
-    <a-camera id="camera" look-controls fov="170">
+    <!-- <a-camera id="camera" position="-90 0 0" look-controls fov="170" position="0 0 10"> -->
 
-      <a-asset item id="bird" response-type="arraybuffer"
-        src="https://cdn.glitch.com/bb8ea6ff-c5a0-4a48-8d5f-f9ad15c22ad2%2Fraptor.glb?v=1589421673110">
-      </a-asset>
-      <a-asset item id="duck" response-type="arraybuffer"
-        src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fduck.glb?v=1589540182898">
-      </a-asset>
-      <a-asset item id="cloud" response-type="arraybuffer"
-        src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fcloud.glb?v=1589533027410">
-      </a-asset>
-      <a-asset item id="rocket" response-type="arraybuffer"
-        src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Frocket_ship.glb?v=1589536836870">
-      </a-asset>
-      <a-asset item id="standing" response-type="arraybuffer"
+    <!-- Lighting -->
+    <a-light type="hemisphere" color="#00316E"></a-light>
+
+    <a-entity 
+    animation="property: rotation; from: 0 0 0; to: 0 0 0 ; dur: 3000; easing: linear;">
+      <a-entity id="camera" camera="fov:70" look-controls position="0 0.5 0">
+
+      </a-entity>
+    </a-entity>
+
+    <a-asset item id="duck" response-type="arraybuffer"
+      src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fduck.glb?v=1589540182898">
+    </a-asset>
+    <a-asset item id="rocket" response-type="arraybuffer"
+      src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Frocket_ship.glb?v=1589536836870">
+    </a-asset>
+    <a-asset item id="standing" response-type="arraybuffer"
       src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fstanding.glb?v=1589580713753">
     </a-asset>
 
+    <a-asset item id="my-image" response-type="arraybuffer"
+      src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fimage.png?v=1589601160589">
+    </a-asset>
 
-      
-      
-      <!-- 
-    <a-sky src="https://cdn.glitch.com/7e18fbf8-9686-4cf7-91f9-4a6bbdb54f5e%2FTRAPPIST-1d_02.21.17_3_unlabeled.png?v=1544173905982"> </a-sky> 
-      -->
 
-      <!-- 
-        <a-entity id="thingtoo" scale="0.25 0.25 0.25" rotation="0 90 0" animation-mixer="clip:Raptor_RIGAction"
-        gltf-model="#bird"
-        animation="property: position; from:-8 -2 -6; to: 8 -2 -6 ; dur: 6000; easing: linear;  loop: true;">
-      </a-entity> 
-      -->
 
-      <a-entity scale="0.3 0.35 0.3" position=" 1.5 -0.7 -2" rotation="0 320 0" animation-mixer="clip:mixamo.com"
-        gltf-model="#standing">
+
+
+    <a-sky rotation="0 320 0"
+      src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fsky.png?v=1589606734494"
+      animation="property: rotation; from: 0 0 0; to: 0 360 0 ; dur: 600000; easing: linear; loop: true;">
+      > </a-sky>
+
+
+    <!-- DUCK -->
+    <a-entity scale="0.3 0.35 0.3" position=" 1.5 -0.7 -2" rotation="0 320 0" animation-mixer="clip:mixamo.com"
+      gltf-model="#standing">
+    </a-entity>
+
+    <a-entity id="thing" scale="0.25 0.25 0.25" rotation="0 270 0" animation-mixer="clip:walk" gltf-model="#duck"
+      animation="property: position; from: 5 -2 -6; to: 3 -2 -6 ; dur: 2000; easing: linear;">
+    </a-entity>
+
+
+    <!-- TEXT -->
+    <a-entity  position="0 0 0" 
+    animation="property: scale; from: 0 0 0; to: 1 1 1; dur: 3000; easing: easeInOutElastic;"
+    animation__2="property: rotation; from: 0 0 0; to: 0.3 0.3 0.3; dur: 2000; easing: linear;  loop: true; dir: alternate;">
+    <a-entity position="1.1 0.8 -2">
+
+      <a-plane opacity=".3" position="0 0 0" rotation="0 -10 0" scale="1.8 1 1"
+        material=" src:#my-image; transparent:true; opacity:0.9;alpha-test:0.5"></a-plane>
+
+      <a-text value="Hello! I'm Gera" shader="msdf"
+        font="https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/autourone/AutourOne-Regular.json"
+        position="-0.38 0.2 0" scale="1.3 1.8 1" rotation="0 -10 0" width="1.9" color="black"></a-text>
+
+      <a-text value="Welcome to my page" shader="msdf"
+        font="https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/autourone/AutourOne-Regular.json"
+        position="-0.5 0.05 0" scale="1.3 1.8 2 1" rotation="0 -10 0" width="1.9" color="black"></a-text>
+
+      <a-text value="Feel free to explore" shader="msdf"
+        font="https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/autourone/AutourOne-Regular.json"
+        position="-.38 -0.07 0" scale="1 1.4 2" rotation="0 -10 0" width="1.9" color="black"></a-text>
       </a-entity>
+    </a-entity>
 
-      <a-entity id="thing" scale="0.25 0.25 0.25" rotation="0 270 0" animation-mixer="clip:walk"
-        gltf-model="#duck"
-        animation="property: position; from: 5 -2 -6; to: 3 -2 -6 ; dur: 2000; easing: linear;">
-      </a-entity>
-
-      <!-- CLOUDS -->
-      <a-entity scale="0.01 0.01 0.01" rotation="-70 -45 -45" gltf-model="#rocket" animation-mixer="clip:Take 001"
-        animation="property: position; from: -100 0 -40; to: 60 20 -40 ; dur: 20000; easing: linear;  loop: true;">
-      </a-entity>
-
-      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud"
-        animation="property: position; from: 5.5 1.4 -5.5; to: -4 1.4 -5.5 ; dur: 30000; easing: linear;  loop: true;">
-      </a-entity>
-
-      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud" 
-        animation="property: position; from: 5 1.8 -4.5; to: -5 1.8 -4.5 ; dur: 25000; easing: linear;  loop: true;">
-      </a-entity>
-
-
-      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0"  gltf-model="#cloud"
-        animation="property: position; from: 5.5 1.6 -5; to: -4 1.6 -5 ; dur: 32000; easing: linear;  loop: true; delay:12000">
-      </a-entity>
-
-      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0"  gltf-model="#cloud"
-        animation="property: position; from: 5 1.4 -5.5; to: -4 1.4 -5.5 ; dur: 30000; easing: linear;  loop: true; delay:12000">
-      </a-entity>
-
-      <a-entity scale="0.01 0.01 0.01" rotation="0 90 0" gltf-model="#cloud"
-        animation="property: position; from: 5 1.8 -4.5; to: -5 1.8 -4.5 ; dur: 25000; easing: linear;  loop: true; delay:15000">
-      </a-entity>
-
+    <!-- ROCKET -->
+    <a-entity scale="0.01 0.01 0.01" rotation="-70 -45 -45" gltf-model="#rocket" animation-mixer="clip:Take 001"
+      animation="property: position; from: -100 0 -40; to: 60 20 -40 ; dur: 20000; easing: linear;  loop: true;">
+    </a-entity>
 
 
   </a-scene>
-  <script src="script.js"></script>
+  <script src="assets/js/script.js"></script>
 
 </body>
 
@@ -104,3 +109,12 @@
       resumeEvents: rotation-resume;
        "
 -->
+
+
+<!-- 
+<div  style="height: 550px; overflow: hidden">
+  <iframe id='myIframe' allowvr="yes" style="width: 100%; height: 700px;z-index: -1; overflow-y:hidden;
+  overflow-x:hidden; " allowfullscreen="yes" src="scene.html"  frameBorder="0"></iframe>
+  </div>
+
+  <iframe  allowvr="yes" style="width: 100%; height: 700px;" allowfullscreen="yes" src="computer.html"  frameBorder="0"></iframe> -->
