@@ -5,13 +5,43 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <style>
+        @media (max-width: 768px) {
+            #scroll-here {
+                font-size: 22px;
+                line-height: 36px;
+            }
+        }
+
+        #scroll-here {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 56px;
+            color: #fff;
+            width: 25%;
+            height: 100%;
+            background-color: rgba(17, 17, 17, 0.4);
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            padding: 50vh 0;
+            font-family: Montserrat, sans-serif;
+        }
+    </style>
 </head>
 
 <body>
+    <h1 id="scroll-here">
+        <div>
+            Scroll Here
+        </div>
+    </h1>
 
-
-
-    <a-scene physics vr-mode-ui="enabled: false" >
+    <a-scene physics vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
 
         <a-entity camera look-controls position="0 1.6 0"></a-entity>
 
@@ -22,12 +52,7 @@
             src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fworkspace.glb?v=1589582754449">
         </a-asset>
 
-
-
-
         <a-sky src="https://cdn.glitch.com/ec73182f-9582-4d9c-a69f-ecae2456372c%2Fcanyon.jpg?v=1589584627731"> </a-sky>
-
-
 
         <a-entity scale="0.375 0.375 0.375" position="0.3 0.8  -1" rotation="0 268 0" animation-mixer="clip:mixamo.com"
             gltf-model="#sitting">
