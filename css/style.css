@@ -19,6 +19,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html, body {margin: 0; height: 100%; overflow: hidden}
+html {
+  scroll-behavior: smooth;
+ }
+ 
 body {
     font-family: "Open Sans", sans-serif;
     color: #555555;
@@ -329,10 +334,21 @@ body {
   .mobile-nav-active .mobile-nav-toggle i {
     color: #fff;
   }
+
+  #loading {
+    width: 100%;
+    height: 100vh;
+    background: url('../img/loading.gif') no-repeat center center;
+    z-index: 9999;
+
+
+    }
   
   /*--------------------------------------------------------------
   # Hero Section
   --------------------------------------------------------------*/
+
+  
   #hero {
     width: 100%;
     height:100vh;
@@ -353,6 +369,20 @@ body {
     padding: 0 15px;
   }
   
+  #hero .hero-bg {
+    z-index: 1; 
+    background-color: 
+    rgba(30, 30, 30, 0.4); 
+    border-radius: 12px; 
+    border: solid;
+    border-color: #555555;
+    padding-left: 12px; 
+    padding-right: 12px; 
+    padding-top: 30px; 
+
+
+  }
+  
   #hero .hero-logo {
     margin-bottom: 30px;
   }
@@ -366,39 +396,26 @@ body {
   }
   
   #hero h2 {
-    color: #aeaeae;
+    color: #fff;
     margin-bottom: 30px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
   }
 
   #hero h3 {
-    color: #aeaeae;
-    margin-bottom: 30px;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  
-  #hero .btn-get-started {
-    font-family: "Montserrat", sans-serif;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 16px;
-    letter-spacing: 1px;
-    display: inline-block;
-    padding: 14px 30px;
-    border-radius: 3px;
-    transition: 0.5s;
-    margin: 10px;
     color: #fff;
-    background: #7cc576;
+    margin-bottom: 30px;
+    font-size: 15px;
+    text-transform: uppercase;
   }
   
-  #hero .btn-get-started:hover {
-    background: #fff;
-    color: #7cc576;
+  #hero h4 {
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
   }
+  
+  
   
   @media (min-width: 1024px) {
     #hero {
@@ -440,6 +457,7 @@ body {
     margin-bottom: 15px;
     padding-bottom: 0;
     color: #151515;
+    padding-top: 10px;
   }
   
   .section-title p {
@@ -490,13 +508,13 @@ body {
     margin: 5px 0 10px 60px;
   }
   
-  .services .icon-box i {
+  .featured .icon-box i {
     font-size: 48px;
     float: left;
     color: #7cc576;
   }
   
-  .services .icon-box p {
+  .featured .icon-box p {
     font-size: 15px;
     color: #959595;
     margin-left: 60px;
@@ -510,7 +528,7 @@ body {
   }
   
   /*--------------------------------------------------------------
-  # Featured
+  # Projects
   --------------------------------------------------------------*/
   .featured {
     padding: 40px 0 0 0;
@@ -574,6 +592,15 @@ body {
     }
   }
   
+  .allow-scroll{
+  color:white;
+  left:80%; 
+  width: 20%;
+  height: 700px;
+   background-color: rgba(17, 17, 17, 0.4);
+    z-index: 1; top:-705px; 
+    position: relative;
+  }
   /*--------------------------------------------------------------
   # Why Us
   --------------------------------------------------------------*/
