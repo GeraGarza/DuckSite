@@ -19,10 +19,14 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-html, body {margin: 0; height: 100%; overflow: hidden}
-html {
-  scroll-behavior: smooth;
+
+html, body{
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
  }
+
+
  
 body {
     font-family: "Open Sans", sans-serif;
@@ -153,10 +157,10 @@ body {
     display: block;
     position: relative;
     padding: 15px 25px;
-    transition: 0.3s;
     font-size: 15px;
     text-transform: uppercase;
     font-family: "Open Sans", sans-serif;
+    
   }
   
   .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -175,7 +179,6 @@ body {
     padding: 10px 0;
     background: #fff;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-    transition: ease all 0.3s;
   }
   
   .nav-menu .drop-down:hover > ul {
@@ -378,8 +381,9 @@ body {
     border-color: #555555;
     padding-left: 12px; 
     padding-right: 12px; 
-    padding-top: 30px; 
-
+    cursor: pointer;
+    color: white;
+    padding: 20px;;
 
   }
   
@@ -457,7 +461,7 @@ body {
     margin-bottom: 15px;
     padding-bottom: 0;
     color: #151515;
-    padding-top: 10px;
+    padding-top: 60px;
   }
   
   .section-title p {

@@ -41,3 +41,4 @@ async function delete_cover() {
   body_ele.setAttribute("style", "overflow:visible; height:auto");
   $('#cover').remove();
 }
+
